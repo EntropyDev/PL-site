@@ -28,7 +28,7 @@ public class PlayerService {
                     .collect(Collectors.toList());
         }
 
-        public List<Player> getPlayerByName(String searchText){
+        public List<Player> getPlayersByName(String searchText){
             return playerRepository.findAll().stream()
                     .filter(player -> player.getName().toLowerCase().contains(searchText.toLowerCase()))
                     .collect(Collectors.toList());
@@ -73,7 +73,7 @@ public class PlayerService {
         }
 
         @Transactional
-        public void deletePLayer(String playerName){
+        public void deletePlayer(String playerName){
             playerRepository.deleteByName(playerName);
         }
 }
